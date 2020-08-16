@@ -1,0 +1,30 @@
+.sidebar {
+  border-right: 1px solid var(--twitter-background);
+  margin-top: 7px;
+  padding: 0 20px;
+  flex: 0.2;
+  min-width: 250px;
+}
+.sidebar__options {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 2rem;
+}
+.sidebar__options:hover {
+  color: var(--twitter-color);
+  background-color: rgb(235, 247, 255);
+  cursor: pointer;
+  transition: all 0.2s ease-out;
+}
+
+.sidebar__options h3 {
+  font-weight: 500;
+  padding-right: 20px;
+}
+.sidebar__options.active {
+  color: var(--twitter-color);
+}
+
+.MuiButton {
+  background-color: var(--twitter-color);
+}

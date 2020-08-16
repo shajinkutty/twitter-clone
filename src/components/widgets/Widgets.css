@@ -1,0 +1,55 @@
+.widgets {
+  flex: 0.3;
+  padding: 0 20px;
+  overflow: scroll;
+  background-color: #fff;
+}
+/* Hide scrollbar for chrome, safari and opera */
+.widgets::-webkit-scrollbar {
+  display: none;
+}
+/* Hide scrollbar for IE,Edge and firefox */
+.widgets {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.widgets__header {
+  position: sticky;
+  top: 0;
+  padding: 5px 0;
+  background-color: #fff;
+}
+.widgets__input {
+  position: relative;
+  /* margin: 10px 0; */
+  display: flex;
+  align-items: center;
+  background-color: var(--twitter-background);
+  width: 100%;
+  border-radius: 30px;
+  padding: 0 1rem;
+  color: grey;
+  border: 1px solid var(--twitter-background);
+  box-sizing: border-box;
+}
+.widgets__input input {
+  padding: 0.7rem;
+  background-color: transparent;
+  border: 0;
+  flex: 1;
+  font-size: 17px;
+}
+.widgets__input input::placeholder {
+  font-size: 0.9rem;
+}
+.widgets__input input:focus {
+  outline: 0;
+}
+.widgets__input:focus-within {
+  background-color: #fff;
+  border: 1px solid var(--twitter-color);
+  color: var(--twitter-color);
+}
+.widgets__widgetContainer {
+  margin-top: 20px;
+}
