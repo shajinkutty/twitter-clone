@@ -10,6 +10,8 @@ import TransformIcon from "@material-ui/icons/Transform";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import PublishIcon from "@material-ui/icons/Publish";
 
+import moment from "moment";
+
 const useStyle = makeStyles({
   root: {
     fontSize: "medium",
@@ -33,54 +35,54 @@ const buttonStyle = makeStyles({
   },
 });
 
-function Post({ displayName, userName, avatar, verifiyed }) {
+function Post({
+  displayName,
+  userName,
+  avatar,
+  text,
+  verifiyed,
+  image,
+  createdAt,
+}) {
   const classes = useStyle();
   const buttonClasses = buttonStyle();
   return (
     <div className="post">
       <div className="post__avatar">
-        <Avatar src="https://m.cricbuzz.com/a/img/v1/192x192/i1/c171004/sachin-tendulkar.jpg"></Avatar>
+        <Avatar src={avatar}></Avatar>
       </div>
       <div className="post__body">
         <div className="post__header">
           <div className="post__headerText">
-            <h3>Sachin Tendulkar</h3>
+            <h3>{displayName}</h3>
+            {verifiyed && <VerifiedUserIcon classes={{ root: classes.root }} />}
 
-            <VerifiedUserIcon
-              classes={{ root: classes.root }}
-            ></VerifiedUserIcon>
-
-            <span>@sachin_rt</span>
+            <span>@{userName}</span>
+            <span> . {moment(createdAt).startOf("second").fromNow()}</span>
           </div>
           <div className="post__headerDescription">
-            <p>
-              Congratulations, Suresh on a wonderful career playing Cricket bat
-              and ball for India.Still remember our partnership on-field
-              conversations during your debut Test! Wish you all the very best
-              for your future endeavours.
-            </p>
+            <p>{text}</p>
           </div>
         </div>
-        <div className="post__image">
-          <img
-            src="https://pbs.twimg.com/media/EfeapdSX0AIrYr6?format=jpg&name=small"
-            alt=""
-          />
-        </div>
+        {image && (
+          <div className="post__image">
+            <img src={image} alt="" />
+          </div>
+        )}
       </div>
 
       <div className="post__footer">
         <div className="post__button">
           <ChatBubbleOutlineIcon classes={{ root: buttonClasses.root }} />
-          <span>12</span>
+          <span>0</span>
         </div>
         <div className="post__button">
           <TransformIcon classes={{ root: buttonClasses.root }} />
-          <span>3</span>
+          <span>0</span>
         </div>
         <div className="post__button">
           <FavoriteBorderIcon classes={{ root: buttonClasses.root }} />
-          <span>4</span>
+          <span>0</span>
         </div>
         <div className="post__button">
           <PublishIcon classes={{ root: buttonClasses.root }} />
